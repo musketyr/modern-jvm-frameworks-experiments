@@ -1,0 +1,12 @@
+plugins {
+    id 'io.quarkus'
+    id 'org.kordamp.gradle.jandex'
+}
+
+dependencies {
+    implementation project(':model')
+    implementation project(':notification')
+
+    implementation 'io.quarkus:quarkus-rest'
+    implementation 'io.quarkus:quarkus-rest-jackson' // For JSON serialization
+}

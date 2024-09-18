@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        mavenLocal()
+    }
+    plugins {
+        id "${quarkusPluginId}" version "${quarkusPluginVersion}"
+        id 'org.kordamp.gradle.jandex' version '2.0.0'
+    }
+}
+
+plugins {
+    id("com.gradle.develocity") version("3.18.1")
+}
+
+develocity {
+    buildScan {
+        termsOfUseUrl.set('https://gradle.com/help/legal-terms-of-use')
+        termsOfUseAgree.set('yes')
+    }
+}
+
+
+rootProject.name = 'quarkus-todoapp'
+
+include 'model', 'api', 'notification'
+

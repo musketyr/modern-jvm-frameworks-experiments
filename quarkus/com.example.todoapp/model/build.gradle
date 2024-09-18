@@ -1,0 +1,12 @@
+plugins {
+    id 'java-library'
+    id 'io.quarkus'
+    id 'org.kordamp.gradle.jandex'
+}
+
+dependencies {
+    api 'io.quarkus:quarkus-hibernate-orm-panache'
+
+    implementation 'io.quarkus:quarkus-jdbc-postgresql' // Assuming PostgreSQL
+    implementation 'io.quarkus:quarkus-hibernate-validator'
+}
