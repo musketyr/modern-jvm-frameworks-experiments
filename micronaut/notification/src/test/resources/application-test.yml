@@ -1,0 +1,10 @@
+test-resources:
+  containers:
+    fakesmtp:
+      image-name: mailhog/mailhog
+      hostnames:
+        - smtp.host
+        - mailhog.host
+      exposed-ports:
+        - smtp.port: 1025
+        - mailhog.port: 8025

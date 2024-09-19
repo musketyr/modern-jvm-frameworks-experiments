@@ -26,10 +26,9 @@ public class DailyNotificationJob {
     void checkTodosAndSendNotifications() {
         List<Todo> todos = Todo.list("dueDate = ?1 and archived = false", LocalDate.now());
 
-        for (Todo todo : todos) {
+        if (!todos.isEmpty()) {
             Map<String, Object> emailData = new HashMap<>();
-            emailData.put("task", todo.getTask());
-            emailData.put("dueDate", todo.getDueDate());
+            emailData.put("todos", todos);
 
             String emailBody = todoReminder
                     .data(emailData)     // Populate the template with task data
@@ -38,7 +37,7 @@ public class DailyNotificationJob {
             mailer.send(
                     Mail.withHtml(
                             "user@example.com",
-                            "Reminder: Task Due Today",
+                            "Reminder: Tasks Due Today",
                             emailBody
                     )
             );

@@ -1,13 +1,13 @@
-<!-- notification/src/main/resources/templates/todo-reminder.html -->
+<!-- notification/src/main/resources/templates/todo-reminder.vm -->
 <html>
 <body>
 <h1>Reminder: Tasks Due Today</h1>
 <p>Hi,</p>
 <p>This is a reminder that the following tasks are due today:</p>
 <ul>
-    {#each todos}
-        <li><strong>Task:</strong> {it.task} - <strong>Due Date:</strong> {it.dueDate}</li>
-    {/each}
+    #foreach ($todo in $todos)
+        <li><strong>Task:</strong> $todo.task - <strong>Due Date:</strong> $todo.dueDate</li>
+    #end
 </ul>
 <p>Please complete them as soon as possible.</p>
 <p>Best regards,<br>Todo App Team</p>

@@ -1,0 +1,14 @@
+Reminder: Tasks Due Today
+
+Hi,
+
+This is a reminder that the following tasks are due today:
+
+#foreach ($todo in $todos)
+- Task: $todo.task - Due Date: $todo.dueDate
+#end
+
+Please complete them as soon as possible.
+
+Best regards,
+Todo App Team
