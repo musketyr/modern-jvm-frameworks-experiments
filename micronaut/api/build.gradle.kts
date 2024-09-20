@@ -27,6 +27,10 @@ dependencies {
     implementation(project(":model"))
     implementation(project(":notification"))
 
+    developmentOnly("io.micronaut:micronaut-management")
+    developmentOnly("io.micronaut.controlpanel:micronaut-control-panel-ui")
+    developmentOnly("io.micronaut.controlpanel:micronaut-control-panel-management")
+
     testImplementation("com.agorapulse:gru-micronaut:2.1.2")
 }
 
@@ -66,6 +70,10 @@ micronaut {
 
 tasks.named<io.micronaut.gradle.docker.NativeImageDockerfile>("dockerfileNative") {
     jdkVersion = "21"
+}
+
+tasks.withType<JavaExec> {
+    environment("MICRONAUT_ENVIRONMENTS", "dev")
 }
 
 
