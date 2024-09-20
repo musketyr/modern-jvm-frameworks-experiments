@@ -10,4 +10,7 @@ dependencies {
     implementation 'io.quarkiverse.qute.web:quarkus-qute-web'
     implementation 'io.quarkus:quarkus-scheduler'
     implementation 'io.quarkus:quarkus-mailer'
+
+    testImplementation('io.quarkiverse.mailpit:quarkus-mailpit-testing:1.2.2')
+    testImplementation('org.mockito:mockito-core:5.13.0')
 }

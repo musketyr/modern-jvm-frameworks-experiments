@@ -24,7 +24,7 @@ public class DailyNotificationJob {
 
     @Scheduled(cron = "0 0 8 * * ?") // Every day at 8 AM
     void checkTodosAndSendNotifications() {
-        List<Todo> todos = Todo.list("dueDate = ?1 and archived = false", LocalDate.now());
+        List<Todo> todos = Todo.list("DATE(dueDate) = :today and archived = false", Map.of("today", LocalDate.now()));
 
         if (!todos.isEmpty()) {
             Map<String, Object> emailData = new HashMap<>();
