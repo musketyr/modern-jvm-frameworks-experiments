@@ -1,14 +1,13 @@
 plugins {
     id 'io.quarkus'
-    id 'org.kordamp.gradle.jandex'
 }
 
 dependencies {
     implementation project(':model')
     implementation project(':notification')
 
-    implementation 'io.quarkus:quarkus-rest'
-    implementation 'io.quarkus:quarkus-rest-jackson' // For JSON serialization
+    implementation 'io.quarkus:quarkus-rest-jackson'
 
-    implementation 'io.quarkiverse.mailpit:quarkus-mailpit:1.2.2'
+    testImplementation('io.quarkus:quarkus-junit5')
+    testImplementation('io.rest-assured:rest-assured')
 }
