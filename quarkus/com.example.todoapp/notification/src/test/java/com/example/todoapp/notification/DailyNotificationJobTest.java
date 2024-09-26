@@ -40,7 +40,7 @@ class DailyNotificationJobTest {
         assertNotNull(message);
         assertEquals("Reminder: Tasks Due Today", message.getSubject());
         assertNotNull(message.getHTML());
-        assertTrue(message.getHTML().contains("Task Due Today"));
+        assertTrue(message.getHTML().contains("Tasks Due Today"));
     }
 
 }
