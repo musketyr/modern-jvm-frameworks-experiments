@@ -1,0 +1,46 @@
+allprojects {
+    group 'com.example'
+    version '1.0.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    group = 'io.helidon.examples'
+    version = '1.0-SNAPSHOT'
+
+    description = """helidon-quickstart-mp"""
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    ext {
+        helidonversion = '4.1.1'
+        mainClass = 'io.helidon.microprofile.cdi.Main'
+    }
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        // import Helidon BOM
+        implementation enforcedPlatform("io.helidon:helidon-dependencies:${project.helidonversion}")
+        implementation 'io.helidon.microprofile.bundles:helidon-microprofile'
+
+        runtimeOnly 'io.smallrye:jandex'
+        runtimeOnly 'jakarta.activation:jakarta.activation-api'
+
+        testImplementation 'io.helidon.microprofile.testing:helidon-microprofile-testing-junit5'
+        testImplementation 'org.junit.jupiter:junit-jupiter-api'
+        testImplementation 'org.hamcrest:hamcrest-all'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
